@@ -4,7 +4,7 @@ type Member = {
    age: number
 };
 
-const MemberList: Member[] = [
+export const memberList: Member[] = [
   {
     id: 1,
     name: 'hoge',
