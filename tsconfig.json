@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "soureMap": false,
+    "sourceMap": false,
     "noImplicitAny": true,
     "module": "commonjs",
     "target": "es5",
@@ -21,4 +21,4 @@
   "include": [
     "./src/**/*.ts"
   ]
-}c
+}
