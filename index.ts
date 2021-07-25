@@ -1,50 +1,9 @@
 import { ApolloServer } from 'apollo-server-express';
 import  express from 'express';
 import expressPlayground from 'graphql-playground-middleware-express';
+import fs from 'fs';
 
-const typeDefs: string = `
-  type User {
-    id: ID!
-    name: String!
-  }
-
-  input NewUserInput {
-    name: String
-  }
-
-  enum PhotoCategory {
-    SELECT
-    PORTRAIT
-    ACTION
-    LANDSCAPE
-    GRAPHIC
-  }
-
-  type Photo {
-    id: ID!
-    url: String!
-    name: String!
-    description: String
-    category: PhotoCategory!
-  }
-
-  input NewPhotoInput {
-    name: String!
-    category: PhotoCategory=PORTRAIT
-    description: String
-  }
-
-  type Query {
-    totalPhotos: Int!
-    allPhotos: [Photo!]!
-    allUsers: [User!]!
-  }
-
-  type Mutation {
-    newPhoto(input: NewPhotoInput!): Photo!
-    newUser(input: NewUserInput!): User!
-  }
-`;
+const typeDefs: string = fs.readFileSync('./typeDefs.graphql', 'utf-8');
 
 type PhotoType = {
   id: string,
